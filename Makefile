@@ -17,7 +17,7 @@ generate_local_coverage_report:
 	docker cp plusteam-odoo-web:/coverage/local coverage
 
 generate_coverage_report:
-	-docker exec -it -u root plusteam-odoo-web coverage run /usr/bin/odoo -d db_test --test-enable -p 8001 --stop-after-init --log-level=test
+	docker exec -it -u root plusteam-odoo-web coverage run /usr/bin/odoo -d db_test --test-enable -p 8001 --stop-after-init --log-level=test
 	docker exec -it -u root plusteam-odoo-web coverage html -d /coverage/all
 	docker cp plusteam-odoo-web:/coverage/all coverage
 
